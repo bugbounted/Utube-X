@@ -7,6 +7,7 @@ from aiogram.dispatcher.filters import Command
 from aiogram.dispatcher import FSMContext
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
+from google.auth.transport.requests import Request # Import Request class
 from plugins.authentication import authenticated_user
 from plugins.help import help_text
 from plugins.start import start_text
