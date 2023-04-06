@@ -100,7 +100,9 @@ def upload_to_youtube(file_path: str, title: str, description: str, privacy_stat
             await bot.edit_message_text(chat_id=upload_status.chat_id, message_id=upload_status.message_id, text=message, reply_markup=reply_markup)
 
     if "id" in response:
-        return True
+        # Do something here
     else:
-        logger.error(f"Error occurred while uploading video: {response}")
-        return False
+        try:
+            # Handle any errors that occur
+        except:
+            # Handle any unspecified exceptions
