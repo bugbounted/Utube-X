@@ -1,7 +1,7 @@
 from aiogram import types
 from aiogram.dispatcher.filters import Command
 
-from .config import SESSION_NAME
+from bot.config import SESSION_NAME
 
 
 async def help_command(message: types.Message):
