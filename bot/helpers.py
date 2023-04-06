@@ -98,11 +98,3 @@ def upload_to_youtube(file_path: str, title: str, description: str, privacy_stat
             message += f"\n┃ ┠─💽 Size: {status.total_size / (1024 * 1024 * 1024):.2f} GiB "
             message += f"\n┃ ┗━⏰ ETA: {status.eta} seconds"
             await bot.edit_message_text(chat_id=upload_status.chat_id, message_id=upload_status.message_id, text=message, reply_markup=reply_markup)
-
-    if "id" in response:
-        # Do something here
-    else:
-        try:
-            # Handle any errors that occur
-        except:
-            # Handle any unspecified exceptions
