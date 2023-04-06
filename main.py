@@ -8,7 +8,7 @@ from aiogram.dispatcher import FSMContext
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request # Import Request class
-from plugins.authentication import authenticated_user
+from plugins.authentication import AuthMiddleware
 from plugins.help import help_text
 from plugins.start import start_text
 from plugins.upload import upload_video
@@ -28,6 +28,9 @@ logging.basicConfig(level=logging.INFO)
 bot = Bot(token=BOT_TOKEN, parse_mode=types.ParseMode.HTML)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
+
+# Setup middleware 
+dp.middleware.setup(AuthMiddleware())
 
 # Initialize Google API credentials
 SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
