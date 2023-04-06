@@ -98,3 +98,24 @@ def upload_to_youtube(file_path: str, title: str, description: str, privacy_stat
             message += f"\n┃ ┠─💽 Size: {status.total_size / (1024 * 1024 * 1024):.2f} GiB "
             message += f"\n┃ ┗━⏰ ETA: {status.eta} seconds"
             await bot.edit_message_text(chat_id=upload_status.chat_id, message_id=upload_status.message_id, text=message, reply_markup=reply_markup)
+async def uploader(upload_status: UploadStatus):
+    """
+    Upload a video to YouTube using the YouTube Data API
+    """
+
+    # upload the video and store the response
+    response = upload_video(upload_status)
+
+    # update the user that the upload has completed (or has failed)
+    message = upload_status.message
+    reply_markup = upload_status.reply_markup
+
+    try:
+
+        await bot.edit_message_text(text=message, chat_id=upload_status.chat_id, message_id=upload_status.message_id, reply_markup=reply_markup)
+    except Exception as e:
+        print(f"Exception while uploading video: {e}")
+        # Handle the error gracefully in some way
+        pass
+
+    # continue with rest of code here
