@@ -1,7 +1,7 @@
 import os
 
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
-SESSION_NAME = os.environ.get("SESSION_NAME", "telegram-youtube-bot")
+SESSION_NAME = os.environ.get("SESSION_NAME", "tg2tubebot")
 API_ID = int(os.environ.get("API_ID"))
 API_HASH = os.environ.get("API_HASH")
 CLIENT_ID = os.environ.get("CLIENT_ID")
